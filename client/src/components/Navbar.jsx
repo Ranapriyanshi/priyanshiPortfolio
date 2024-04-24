@@ -31,7 +31,7 @@ const Navbar = () => {
         className="logo"
       />
       <motion.div className="nav-links">
-        <motion.ul className="link-list">
+        {/* <motion.ul className="link-list"> */}
           {navLinks.map((link, index) => (
             <motion.li
               key={index}
@@ -42,7 +42,7 @@ const Navbar = () => {
               {link.title}
             </motion.li>
           ))}
-        </motion.ul>
+        {/* </motion.ul> */}
         <LayoutGroup id="underline">
           <motion.div className="lanSwitch">
             {langs.map((lang) => (
