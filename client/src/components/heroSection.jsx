@@ -1,20 +1,36 @@
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 import w1 from "../assets/w1.png";
 import w2 from "../assets/w2.png";
 import w3 from "../assets/w3.png";
 import { useState } from "react";
 import photo from "../assets/photo.png";
-// import arrowCursor from "../assets/arrow-cursor.png";
+import arrow from "../assets/arrow.png";
 const HeroSection = () => {
   const [isTrialHovered, setIsTrialHovered] = useState(false);
+  const [isTitleHovered, setIsTitleHovered] = useState(false);
 
   const handleTrialHover = () => {
     setIsTrialHovered(true);
+    setIsTitleHovered(true);
   };
 
   const handleTrialLeave = () => {
     setIsTrialHovered(false);
+    setIsTitleHovered(false);
   };
+  const handleTitleHover = () => {
+    setIsTitleHovered(true);
+  };
+
+  const handleTitleLeave = () => {
+    setIsTitleHovered(false);
+  };
+
+  const handleCursor = document.querySelector(".cursor");
+  document.addEventListener("mousemove", (e) => {
+    handleCursor.style.left = e.pageX - 35 + "px";
+    handleCursor.style.top = e.pageY - 35 + "px";
+  });
   return (
     <motion.div className="hero-sec">
       <motion.div className="photo-div">
@@ -25,7 +41,12 @@ const HeroSection = () => {
       </motion.p>
       <motion.div
         className={`text-sec ${isTrialHovered ? "opacity-reduced" : ""}`}
+        onMouseEnter={handleTitleHover}
+        onMouseLeave={handleTitleLeave}
       >
+        <motion.div className={`${isTitleHovered ? "cursor" : "notCursor"}`} >
+          <motion.img src={arrow} alt="photo" className="photo" />
+        </motion.div>
         <motion.p className="designer">Webdesigner</motion.p>
         <motion.p className="designer1">Webdesigner</motion.p>
         <motion.p className="designer2">Webdesigner</motion.p>

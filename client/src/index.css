@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&family=Quicksand&display=swap');
 @font-face {
-  font-family: "heading-font";
-  src: url("./assets/mediasanssemicondensed-bold-TRIAL-BF63c75479cdb92.otf"), format("otf");
+  font-family: "honepage-title-font";
+  src: url("./assets//fonts/mediasanssemicondensed-bold-TRIAL-BF63c75479cdb92.otf"), format("otf");
+}
+@font-face {
+  font-family: "designpage-title-font";
+  src: url("./assets/mediasansextended-regular-TRIAL-BF63c7546b4aef3.otf"), format("otf");
 }
 /* Navbar Styling */
 .nav{
@@ -86,25 +90,49 @@
   position: relative;
 }
 .text-sec{
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  transition: ease-out 0.5s;
+  transition: all 0.5s;
 }
 
+.cursor{
+  position: fixed;
+  pointer-events: none;
+  background: white;
+  width: 78px;
+  height: 78px;
+  border: 5px solid black;
+  border-radius: 50%;
+  z-index: 999;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img{
+    scale: 2;
+    rotate: -45deg;
+    stroke: black;
+    stroke-width: 2px;
+  }
+}
+
+.notCursor{
+  display: none;
+
+}
 .photo-div{
   width: 100%;
-  /* display: flex;
-  justify-content: center; */
   position: relative;
 
 }
 .photo{
   position: absolute;
-  margin-top: 1%;
   left: 32%;
   width: 35%;
   z-index: 1;
@@ -121,14 +149,18 @@
 .designer, .designer1, .designer2, .developer, .developer1, .developer2 {
   font-size: 14.2rem;
   font-weight: bolder;
-  font-family: "heading-font", Impact, sans-serif;
+  font-family: "honepage-title-font", Impact, sans-serif;
   letter-spacing: 3px;
+  /* cursor: url(assets/arrowCursor.png),pointer ; */
+  cursor: pointer;
+  
 }
+  
 
 .designer {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
-  transition: ease-out 0.5s;
+  transition: transform 0s;
 
 }
 .designer1 {
@@ -143,15 +175,15 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   position: absolute;
-  z-index: 2;
-  transition: ease-out 0.5s;
+  z-index: 3;
+  transition: all 0.1s;
 }
 
 .developer {
   color: white;
   -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 1.5px;
-  transition: ease-out 0.5s;
+  transition: all 0.5s;
 }
 
 .developer1 {
@@ -163,7 +195,7 @@
 }
 
 .developer2 {
-  z-index: 2;
+  z-index: 3;
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
@@ -172,17 +204,17 @@
 }
 
 .opacity-reduced{
-  transition: ease-out 0.5s;
+  transition: all 0.5s;
 }
 
 #trial:hover .developer{
   opacity: 0;
-  transition: ease-out 0.5s;
+  transition: all 0.5s;
 }
 
 #trial:hover .developer2, #trial:hover .developer1{
   opacity: 1;
-  transition: ease-out 0.5s;
+  transition: all 0.5s;
 
 }
 .opacity-reduced .designer, .opacity-reduced .designer2 {
@@ -217,4 +249,33 @@
   align-items: center;
   justify-content: center;
   gap: 5%;
+}
+
+/* Design Page Styling */
+.design-sec{
+  margin-top: 13vh;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+
+.design-sec p{
+  /* font-family: "designpage-title-font", sans-serif; */
+  color: orange;
+  font-weight: bolder;
+  letter-spacing: 7px;
+  font-size: 0.8em;
+}
+
+.design-sec h1{
+  font-family: "deaignpage-title-font", sans-serif;
+  font-size: 6rem;
+  /* font-weight: 700; */
+  letter-spacing: -6px;
+  margin-top: 1vh;
+  line-height: 1;
 }
