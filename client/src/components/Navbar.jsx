@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const navLinks = [
-    { title: "Design", path: "/" },
+    { title: "Design", path: "/design" },
     { title: "Photos", path: "/photos" },
     { title: "Project", path: "/project" },
   ];

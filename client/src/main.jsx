@@ -3,12 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Design from "./pages/Design.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App/>} />
+      <Route path="/design" element={<Design/>} />
     </Routes>
     </BrowserRouter>  
   </React.StrictMode>
