@@ -16,7 +16,7 @@
   width: 15%;
 }
 .nav-links{
-  width: 38%;
+  width: 34%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,12 +85,29 @@
   flex-direction: column;
   position: relative;
 }
+.text-sec{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: ease-out 0.5s;
+}
 
+.photo-div{
+  width: 100%;
+  /* display: flex;
+  justify-content: center; */
+  position: relative;
+
+}
 .photo{
-  top: 8%;
-  width: 25%;
   position: absolute;
-  opacity: 0.5;
+  margin-top: 1%;
+  left: 32%;
+  width: 35%;
+  z-index: 1;
 }
 
 .intro{
@@ -101,21 +118,77 @@
 
 }
 
-.title{
+.designer, .designer1, .designer2, .developer, .developer1, .developer2 {
   font-size: 14.2rem;
   font-weight: bolder;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
-  font-family: "heading-font",Impact, sans-serif;
+  font-family: "heading-font", Impact, sans-serif;
   letter-spacing: 3px;
 }
 
+.designer {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  transition: ease-out 0.5s;
 
-#title2{
+}
+.designer1 {
+  color: transparent;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 2px;
+  position: absolute;
+}
+
+.designer2 {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  position: absolute;
+  z-index: 2;
+  transition: ease-out 0.5s;
+}
+
+.developer {
   color: white;
   -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 1.5px;
+  transition: ease-out 0.5s;
 }
+
+.developer1 {
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  opacity: 0;
+  position: absolute;
+}
+
+.developer2 {
+  z-index: 2;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  opacity: 0;
+  position: absolute;
+}
+
+.opacity-reduced{
+  transition: ease-out 0.5s;
+}
+
+#trial:hover .developer{
+  opacity: 0;
+  transition: ease-out 0.5s;
+}
+
+#trial:hover .developer2, #trial:hover .developer1{
+  opacity: 1;
+  transition: ease-out 0.5s;
+
+}
+.opacity-reduced .designer, .opacity-reduced .designer2 {
+  opacity: 0;
+}
+
 
 .details{
   margin-top: 1vh;
@@ -138,7 +211,7 @@
 }
 
 .contact-button{
-  margin-top: 5vh;
+  margin-top: 10vh;
   width: 33%;
   display: flex;
   align-items: center;
