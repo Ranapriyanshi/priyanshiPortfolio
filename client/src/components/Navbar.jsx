@@ -25,7 +25,7 @@ const Navbar = () => {
     <motion.div className="nav">
       <motion.img
         whileHover={{ cursor: "pointer" }}
-        onClick={navigate("/")}
+        onClick={()=> navigate('/')}
         src={logo}
         alt="logo"
         className="logo"

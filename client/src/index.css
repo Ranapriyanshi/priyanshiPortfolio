@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat&family=Quicksand&display=swap");
 @font-face {
   font-family: "honepage-title-font";
-  src: url("./assets//fonts/mediasanssemicondensed-bold-TRIAL-BF63c75479cdb92.otf"), format("otf");
+  src: url("./assets//fonts/mediasanssemicondensed-bold-TRIAL-BF63c75479cdb92.otf"),
+    format("otf");
 }
 @font-face {
   font-family: "designpage-title-font";
-  src: url("./assets/mediasansextended-regular-TRIAL-BF63c7546b4aef3.otf"), format("otf");
+  src: url("./assets/fonts/mediasanssemicondensed-bold-TRIAL-BF63c75479cdb92.otf"),
+    format("otf");
 }
 /* Navbar Styling */
-.nav{
+.nav {
   width: 100%;
   padding: 3vh 8vh;
   display: flex;
@@ -16,25 +18,24 @@
   align-items: center;
 }
 
-.logo{
+.logo {
   width: 15%;
 }
-.nav-links{
+.nav-links {
   width: 34%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.1rem;
-} 
+}
 
-
-.nav-links li{
+.nav-links li {
   list-style: none;
   color: black;
   font-weight: 500;
 }
 
-.lanSwitch{
+.lanSwitch {
   width: 10%;
   justify-content: center;
   align-items: center;
@@ -57,14 +58,14 @@
   bottom: -5px;
 }
 
-.btn{
+.btn {
   background: black;
   color: white;
   border: 0.14rm solid black;
   text-align: center;
   flex: 0 auto;
   border-radius: 0.28em;
-  order :0;
+  order: 0;
   align-self: auto;
   padding: 0.75em 1.11em;
   font-size: 1rem;
@@ -73,14 +74,14 @@
   cursor: pointer;
 }
 
-.btn2{
+.btn2 {
   background: white;
   color: black;
   border: 0.14rm solid black;
 }
 
 /* Hero Section Styling */
-.hero-sec{
+.hero-sec {
   margin-top: 5vh;
   max-width: 100%;
   display: flex;
@@ -89,7 +90,7 @@
   flex-direction: column;
   position: relative;
 }
-.text-sec{
+.text-sec {
   /* width: 100%; */
   display: flex;
   align-items: center;
@@ -99,7 +100,7 @@
   transition: all 0.5s;
 }
 
-.cursor{
+.cursor {
   position: fixed;
   pointer-events: none;
   background: white;
@@ -114,7 +115,7 @@
   align-items: center;
   justify-content: center;
 
-  img{
+  img {
     scale: 2;
     rotate: -45deg;
     stroke: black;
@@ -122,46 +123,45 @@
   }
 }
 
-.notCursor{
+.notCursor {
   display: none;
-
 }
-.photo-div{
+.photo-div {
   width: 100%;
   position: relative;
-
 }
-.photo{
+.photo {
   position: absolute;
   left: 32%;
   width: 35%;
   z-index: 1;
 }
 
-.intro{
+.intro {
   font-weight: lighter;
   letter-spacing: -1px;
   font-size: 1.8em;
   font-family: "Montserrat", sans-serif;
-
 }
 
-.designer, .designer1, .designer2, .developer, .developer1, .developer2 {
+.designer,
+.designer1,
+.designer2,
+.developer,
+.developer1,
+.developer2 {
   font-size: 14.2rem;
   font-weight: bolder;
   font-family: "honepage-title-font", Impact, sans-serif;
   letter-spacing: 3px;
   /* cursor: url(assets/arrowCursor.png),pointer ; */
   cursor: pointer;
-  
 }
-  
 
 .designer {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   transition: transform 0s;
-
 }
 .designer1 {
   color: transparent;
@@ -203,46 +203,46 @@
   position: absolute;
 }
 
-.opacity-reduced{
+.opacity-reduced {
   transition: all 0.5s;
 }
 
-#trial:hover .developer{
+#trial:hover .developer {
   opacity: 0;
   transition: all 0.5s;
 }
 
-#trial:hover .developer2, #trial:hover .developer1{
+#trial:hover .developer2,
+#trial:hover .developer1 {
   opacity: 1;
   transition: all 0.5s;
-
 }
-.opacity-reduced .designer, .opacity-reduced .designer2 {
+.opacity-reduced .designer,
+.opacity-reduced .designer2 {
   opacity: 0;
 }
 
-
-.details{
+.details {
   margin-top: 1vh;
   width: 72%;
   align-items: center;
   justify-content: space-between;
   display: flex;
 }
-.details div{
+.details div {
   width: 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.details div img{
+.details div img {
   width: 22%;
   filter: grayscale(1);
   opacity: 0.5;
 }
 
-.contact-button{
+.contact-button {
   margin-top: 10vh;
   width: 33%;
   display: flex;
@@ -252,8 +252,8 @@
 }
 
 /* Design Page Styling */
-.design-sec{
-  margin-top: 13vh;
+.design-sec {
+  margin-top: 11vh;
   max-width: 100%;
   display: flex;
   justify-content: center;
@@ -263,19 +263,66 @@
   text-align: center;
 }
 
-.design-sec p{
-  /* font-family: "designpage-title-font", sans-serif; */
+.design-sec p {
   color: orange;
   font-weight: bolder;
-  letter-spacing: 7px;
+  letter-spacing: 8px;
   font-size: 0.8em;
+  font-weight: bolder;
+  margin: 2vh 0;
 }
 
-.design-sec h1{
-  font-family: "deaignpage-title-font", sans-serif;
-  font-size: 6rem;
-  /* font-weight: 700; */
-  letter-spacing: -6px;
-  margin-top: 1vh;
-  line-height: 1;
+.hero-txt {
+  font-family: "designpage-title-font", sans-serif;
+  font-size: 5.8rem;
+  font-weight: 800;
 }
+
+.design-sec button {
+  margin: 2.5vh 0;
+  width: 250px;
+}
+
+.client-display{
+  margin-top: 4vh;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.clients{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2vh 2vh;
+  align-items: center;
+  gap: 4vh;
+}
+
+.clients img{
+  width: 40%;
+  filter: grayscale(1);
+  opacity: 0.9;
+}
+/* 
+.animate {
+  animation: slide 10s infinite;
+
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateY(100px) translateX(0%);
+  }
+} */
+
+
