@@ -16,6 +16,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 999;
 }
 
 .logo {
@@ -283,39 +287,34 @@
   width: 250px;
 }
 
-.client-display{
+.client-display {
   margin-top: 4vh;
   width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
   white-space: nowrap;
 }
 
-.clients, .clients1{
-  width: 200%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4vh;
-  animation: slide 10s infinite;
+.clients,
+.clients1 {
+  width: 120%;
+  display: inline-block;
 }
 
-.clients img, .clients1 img {
-  width: 40%;
+.clients {
+  animation: slide 10s infinite linear;
+}
+
+.clients img,
+.clients1 img {
+  width: 12.5%;
+  margin: 0 2vh;
   filter: grayscale(1);
   opacity: 0.9;
 }
 
-.clients1 {
-  animation: slide1 10s infinite;
-  animation-delay: 5s;
-}
-
 @keyframes slide {
   from {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   to {
     transform: translateX(-100%);
@@ -323,11 +322,41 @@
 }
 @keyframes slide1 {
   from {
-    transform: translateX(50%);
+    transform: translateX(100%);
   }
   to {
     transform: translateX(-200%);
   }
+}
+
+.projects-sec {
+  width: 100%;
+  min-height: 20em;
+  justify-content: center;
+  margin-top: 0;
+  position: relative;
+  display: flex;
+  overflow-x: hidden !important;
+  overflow-y: hidden;
+  height: 60vh;
+}
+
+.projects {
+  width: 110%;
+  gap: 35px;
+  display: flex;
+  position: absolute;
+}
+
+.projects-sec img {
+  width: 13%;
+  border-radius: 5px;
+  box-shadow: 0 32px 32px rgba(27, 27, 27, .1), 0 16px 16px rgba(27, 27, 27, .1), 0 8px 8px rgba(27, 27, 27, .1), 0 4px 4px rgba(27, 27, 27, .1), 0 2px 2px rgba(27, 27, 27, .1);
+  opacity: 0.9;
+}
+
+.extra{
+  height: 80vh;
 }
 
 

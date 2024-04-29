@@ -1,4 +1,10 @@
-import { motion } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Navbar from "../components/Navbar";
 import w1 from "../assets/w1.png";
 import w2 from "../assets/w2.png";
@@ -6,15 +12,52 @@ import w3 from "../assets/w3.png";
 import w4 from "../assets/w4.png";
 import w5 from "../assets/w5.png";
 import w6 from "../assets/w6.png";
+import p1 from "../assets/p1.png";
+import { useEffect, useRef } from "react";
 
 const Design = () => {
+  const slideRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: slideRef,
+  });
+  const ref = useRef(null);
+  const view = useInView(ref);
+  const controller = useAnimation();
+  useEffect(() => {
+    if (view) {
+      controller.start("visible");
+    }
+  }, [view, controller]);
+
+  const scrollTransforms = [
+    useTransform(scrollYProgress, [0, 1], ["0%", "0%"]),
+    useTransform(scrollYProgress, [0, 1], ["0%", "25%"]),
+    useTransform(scrollYProgress, [0, 1], ["0%", "35%"]),
+    useTransform(scrollYProgress, [0, 1], ["0%", "50%"]),
+    useTransform(scrollYProgress, [0, 1], ["0%", "35%"]),
+    useTransform(scrollYProgress, [0, 1], ["0%", "25%"]),
+    useTransform(scrollYProgress, [0, 1], ["0%", "0%"]),
+  ];
+
+  const transitionDuration = [1.5, 2.0, 2.5, 3.0, 2.5, 2.0, 1.5];
+
   const clientList = [
-    { id: 1, img: w1 },
     { id: 2, img: w2 },
-    { id: 3, img: w3 },
-    { id: 4, img: w4 },
-    { id: 5, img: w5 },
+    { id: 1, img: w1 },
     { id: 6, img: w6 },
+    { id: 3, img: w3 },
+    { id: 5, img: w5 },
+    { id: 4, img: w4 },
+  ];
+
+  const projects = [
+    { id: 1, img: p1, x: 5 },
+    { id: 2, img: p1, x: 25 },
+    { id: 3, img: p1, x: 35 },
+    { id: 4, img: p1, x: 50 },
+    { id: 5, img: p1, x: 35 },
+    { id: 6, img: p1, x: 20 },
+    { id: 7, img: p1, x: 5 },
   ];
   return (
     <>
@@ -35,38 +78,35 @@ const Design = () => {
         >
           Let&apos;s start a project together
         </motion.button>
-        <motion.div className="client-display">
-          <motion.div
-            className="clients"
-            // initial={{ x: "100%" }}
-            // animate={{ x: "-100%" }}
-            // transition={{
-            //   duration: 10,
-            //   repeat: Infinity,
-            //   type: "tween",
-            //   // repeatType: "loop",
-            // }}
-          >
+        <div className="client-display">
+          <div className="clients">
             {clientList.map((client) => (
-              <motion.img key={client.id} src={client.img} alt="client" />
+              <img key={client.id} src={client.img} alt="client" />
             ))}
-          </motion.div>
-          <motion.div
-            className="clients1"
-            // initial={{ x: "200%" }}
-            // animate={{ x: "-200%" }}
-            // transition={{
-            //   duration: 10,
-            //   repeat: Infinity,
-            //   // repeatType: "loop",
-            //   delay: 3,
-            // }}
-          >
+          </div>
+          <div className="clients">
             {clientList.map((client) => (
-              <motion.img key={client.id} src={client.img} alt="client" />
+              <img key={client.id} src={client.img} alt="client" />
+            ))}
+          </div>
+        </div>
+        <motion.div className="projects-sec">
+          <motion.div className="projects" ref={slideRef} style={{ y: scroll }}>
+            {projects.map((project, index) => (
+              <motion.img
+                key={project.id}
+                src={project.img}
+                alt="project"
+                initial={{ y: project.x * 5 }}
+                animate={{}}
+                ref={slideRef}
+                style={{ y: scrollTransforms[index] }}
+                transition={{ duration: transitionDuration[index] }}
+              />
             ))}
           </motion.div>
         </motion.div>
+        <motion.div className="extra">hello World</motion.div>
       </motion.div>
     </>
   );
