@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   motion,
   useAnimation,
@@ -6,6 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Navbar from "../components/Navbar";
+import ProjectList from '../components/projectList'
 import w1 from "../assets/w1.png";
 import w2 from "../assets/w2.png";
 import w3 from "../assets/w3.png";
@@ -13,7 +15,6 @@ import w4 from "../assets/w4.png";
 import w5 from "../assets/w5.png";
 import w6 from "../assets/w6.png";
 import p1 from "../assets/p1.png";
-import { useEffect, useRef } from "react";
 
 const Design = () => {
   const slideRef = useRef(null);
@@ -39,8 +40,6 @@ const Design = () => {
     useTransform(scrollYProgress, [0, 1], ["0%", "0%"]),
   ];
 
-  const transitionDuration = [1.5, 2.0, 2.5, 3.0, 2.5, 2.0, 1.5];
-
   const clientList = [
     { id: 2, img: w2 },
     { id: 1, img: w1 },
@@ -63,7 +62,7 @@ const Design = () => {
     <>
       <Navbar />
       <motion.div className="design-sec">
-        <motion.p>WEBDESIGNER, FRONTEND AND BACKEND DEVELOPER</motion.p>
+        <motion.p className="intro-line">WEBDESIGNER, FRONTEND AND BACKEND DEVELOPER</motion.p>
         <motion.h1 className="hero-txt">
           Sophisticated tech and tangible
           <br /> solutions for inventive projects.
@@ -100,14 +99,47 @@ const Design = () => {
                 initial={{ y: project.x * 5 }}
                 animate={{}}
                 ref={slideRef}
-                style={{ y: scrollTransforms[index] }}
-                transition={{ duration: transitionDuration[index] }}
+                style={{ y: scrollTransforms[index] }}  
               />
             ))}
           </motion.div>
         </motion.div>
-        <motion.div className="extra">hello World</motion.div>
+         <motion.div className="detail">
+          <motion.h1
+            initial={{ textDecoration: "none", textDecorationColor: "orange" }}
+            animate={{
+              textDecoration: view ? "line-through" : "none",
+              textDecorationColor: "orange",
+            }}
+            transition={{ duration: 1 }}
+            // ref={slideRef}
+          >
+            You need a website.
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: view ? 1 : 0 }}
+            transition={{ duration: 3 }}
+            // ref={slideRef}
+          >
+            You need a high-performing website.
+          </motion.h1>
+          <motion.p>
+            This word will make the difference between a simple visit on your
+            website and a sale.
+            <br />
+            <br />
+            Webesigner and Webflow expert, I help you solve your online
+            visibility challenges and generate more sales by designing custom
+            websites,
+            <i>
+              art direction dedicated to your brand and bespoke digital
+              strategies.
+            </i>
+          </motion.p>
+        </motion.div> 
       </motion.div>
+      <ProjectList/>
     </>
   );
 };
