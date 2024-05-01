@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import Navbar from "../components/Navbar";
-import ProjectList from '../components/projectList'
+import ProjectList from "../components/projectList";
 import w1 from "../assets/w1.png";
 import w2 from "../assets/w2.png";
 import w3 from "../assets/w3.png";
@@ -18,17 +18,22 @@ import p1 from "../assets/p1.png";
 
 const Design = () => {
   const slideRef = useRef(null);
+  const scrollRef1 = useRef(null);
+  const scrollRef2 = useRef(null);
   const { scrollYProgress } = useScroll({
     target: slideRef,
   });
   const ref = useRef(null);
   const view = useInView(ref);
+  const view2 = useInView(scrollRef2);
   const controller = useAnimation();
   useEffect(() => {
     if (view) {
       controller.start("visible");
     }
   }, [view, controller]);
+
+  const lineScroll = useTransform(scrollYProgress, [1, 0], ["-20%", "42%"])
 
   const scrollTransforms = [
     useTransform(scrollYProgress, [0, 1], ["0%", "0%"]),
@@ -62,7 +67,9 @@ const Design = () => {
     <>
       <Navbar />
       <motion.div className="design-sec">
-        <motion.p className="intro-line">WEBDESIGNER, FRONTEND AND BACKEND DEVELOPER</motion.p>
+        <motion.p className="intro-line">
+          WEBDESIGNER, FRONTEND AND BACKEND DEVELOPER
+        </motion.p>
         <motion.h1 className="hero-txt">
           Sophisticated tech and tangible
           <br /> solutions for inventive projects.
@@ -99,28 +106,32 @@ const Design = () => {
                 initial={{ y: project.x * 5 }}
                 animate={{}}
                 ref={slideRef}
-                style={{ y: scrollTransforms[index] }}  
+                style={{ y: scrollTransforms[index] }}
               />
             ))}
           </motion.div>
         </motion.div>
-         <motion.div className="detail">
+        <motion.div className="detail">
           <motion.h1
-            initial={{ textDecoration: "none", textDecorationColor: "orange" }}
-            animate={{
-              textDecoration: view ? "line-through" : "none",
-              textDecorationColor: "orange",
-            }}
-            transition={{ duration: 1 }}
-            // ref={slideRef}
+            transition={{ duration: 15, delay: 4 }}
+            style={{ position: "relative" }}
+            ref={scrollRef2}
           >
+            <motion.div
+              className="line"
+              style={{
+                width: lineScroll
+              }}
+              ref={scrollRef1}
+            ></motion.div>
             You need a website.
           </motion.h1>
           <motion.h1
+          className="line2"
             initial={{ opacity: 0 }}
-            animate={{ opacity: view ? 1 : 0 }}
-            transition={{ duration: 3 }}
-            // ref={slideRef}
+            animate={{ opacity: view2 ? 1 : 0 }}
+            transition={{ duration: 1, delay: 1.5 }}
+            ref={scrollRef2}
           >
             You need a high-performing website.
           </motion.h1>
@@ -132,14 +143,15 @@ const Design = () => {
             Webesigner and Webflow expert, I help you solve your online
             visibility challenges and generate more sales by designing custom
             websites,
-            <i>
+            <b>
               art direction dedicated to your brand and bespoke digital
               strategies.
-            </i>
+            </b>
           </motion.p>
-        </motion.div> 
+        </motion.div>
       </motion.div>
-      <ProjectList/>
+      <ProjectList />
+      <div className="extra"></div>
     </>
   );
 };

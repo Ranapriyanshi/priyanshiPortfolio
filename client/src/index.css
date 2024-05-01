@@ -374,16 +374,80 @@
   line-height: 1.5;
 }
 
+.line {
+  height: 5px;
+  position: absolute;
+  background-color: orange;
+  top: 50%;
+}
+
+.line2{
+  margin-bottom: 15px;
+}
+
 .project-display{
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: "designpage-title-font", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   background-color: black;
   color: white;
-  padding: 4vh 0 ;
+  padding: 5em 10em ;
 }
 
+.project-display-head{
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-display-head div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.project-display-head .button-div{
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 6vh;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-div img{
+  width: 3vh;
+  filter: invert(1);
+}
+.project-carousel{
+  width: 100%;
+  margin: 2vh 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 5%; */
+}
+
+.project{
+}
+
+.project-img{
+  cursor: pointer;
+  height: 65vh;
+  width: 100%;
+  border-radius: 25px;
+  filter: grayscale(1);
+  box-shadow: 0 32px 32px rgba(27, 27, 27, .1), 0 16px 16px rgba(27, 27, 27, .1), 0 8px 8px rgba(27, 27, 27, .1), 0 4px 4px rgba(27, 27, 27, .1), 0 2px 2px rgba(27, 27, 27, .1);
+}
+
+.extra{
+  height: 100vh;
+}
 
