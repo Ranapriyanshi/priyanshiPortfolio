@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import p1 from "../assets/p1.png";
 import arrow from "../assets/arrow.png";
+// import Carousel from "react-elastic-carousel";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useRef, useState } from "react";
 
 const ProjectList = () => {
@@ -22,6 +26,41 @@ const ProjectList = () => {
     setIsProjectHovered(false);
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const projects = [
     { id: "1", img: p1 },
     { id: "2", img: p1 },
@@ -31,6 +70,12 @@ const ProjectList = () => {
     { id: "3", img: p1 },
     { id: "3", img: p1 },
   ];
+
+  // const breakPoints = [
+  //   { width: 1, itemsToShow: 1 },
+  //   { width: 550, itemsToShow: 2 },
+  //   { width: 768, itemsToShow: 3 },
+  // ];
 
   return (
     <motion.section className="project-display">
@@ -45,36 +90,32 @@ const ProjectList = () => {
           </motion.div>
         </motion.div>
       </motion.div>
-      <motion.div className="project-carousel">
-        {/* <Slider {...settings}> */}
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              className="project"
-              onMouseEnter={handleProjectEnter}
-              onMouseLeave={handleProjectLeave}
-              // style={{ width: "300px" }}
-              style={{ height: "300px" }}
-            >
-              <motion.div
-                ref={cursorRef}
-                className={`${isProjectHovered ? "cursor" : "notCursor"}`}
-              >
-                <motion.img src={arrow} alt="photo" className="photo" />
-              </motion.div>
-              <motion.img
-                src={project.img}
-                className="project-img"
-                style={{ height: "300px" }}
-                whileHover={{
-                  filter: "grayscale(0)",
-                }}
-                alt="project"
-              />
-            </motion.div>
-          ))}
-        {/* </Slider> */}
+      <motion.div
+        ref={cursorRef}
+        className={`${isProjectHovered ? "cursor" : "notCursor"}`}
+      >
+        <motion.img src={arrow} alt="photo" className="photo" />
       </motion.div>
+      <Slider {...settings}>
+        {projects.map((project) => (
+          <motion.div
+            key={project.id}
+            className="project"
+            onMouseEnter={handleProjectEnter}
+            onMouseLeave={handleProjectLeave}
+          >
+            <motion.img
+              src={project.img}
+              className="project-img"
+              style={{ height: "300px" }}
+              whileHover={{
+                filter: "grayscale(0)",
+              }}
+              alt="project"
+            />
+          </motion.div>
+        ))}
+      </Slider>
     </motion.section>
   );
 };
