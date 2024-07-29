@@ -66,7 +66,7 @@ const HeroSection = () => {
         <motion.p className="developer2">& Webdeveloper</motion.p>
       </motion.div>
       <motion.div className="details intro">
-        <motion.p>based in Punjab, India</motion.p>
+        <motion.p>based in Haryana, India</motion.p>
         <motion.div>
           <motion.img src={w1} alt="w1" className="apps" />
           <motion.img src={w2} alt="w2" className="apps" />
